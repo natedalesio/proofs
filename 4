@@ -11,3 +11,120 @@ For $n=1$, we have $a_1=2-1=1$. For $n=2$, we have $a_2=2^2-1=3$. Now, suppose t
     \end{aligned}
 \end{equation*}
 \end{proof}
+
+\noindent \textbf{Problem 3: }Prove that, for all $n\in\mathbb{N}$ with $n\geq2$, $4\mid2\cdot9^{n}-10\cdot3^{n}$.
+\begin{proof}
+Let $n=2$. Then, $2\cdot9^{2}-10\cdot3^{2}= 72$. Since $4\mid 72 = 18$, the base case is established. Now, assume that $4\mid2\cdot9^{k}-10\cdot3^{k}$ for some $k\in\mathbb{N}$ with $k\geq 2$. We will prove that $4\mid2\cdot9^{k+1}-10\cdot3^{k+1}$. We have
+\begin{equation*}
+\begin{aligned}
+2\cdot9^{k+1}-10\cdot3^{k+1} = &\; 18\cdot 9^k-30\cdot 3^k\\
+= &\; (2+16)\cdot 9^k - (10+20)\cdot 3^k\\
+= &\; 2\cdot 9^k -10\cdot 3^k + 16\cdot 9^k - 20\cdot 3^k.
+\end{aligned}
+\end{equation*}
+We know $4\mid2\cdot9^{k}-10\cdot3^{k}$. Also, $4\mid 16\cdot 9^K$ and $4\mid 20\cdot 3^k$ since $9^k$ and $3^k$ are any random integer. Therefore, $4\mid2\cdot9^{k+1}-10\cdot3^{k+1}$.
+\end{proof}
+
+\noindent \textbf{Problem 5: }Determine whether the following relation is reflexive, symmetric, or transitive. Provide a counterexample or a proof to support your answer. Finally, state whether or not the given relation is an equivalence relation.$\phantom{\sum}$\newline\\
+\textbf{(a)}\;\;Let $p\in\mathbb{Z}$. For $a,b\in\mathbb{Z}$ we say that ``$a$
+is congruent to $b$ modulo $p$'' and write $a\equiv b\left(\mod p\right)$
+iff $p\mid b-a$. For $x,y\in\mathbb{Z}$ we define $x\sim_{p}y$
+iff $x\equiv y\left(\mod p\right)$. How many distinct $[x]$ are
+there? Justify your assertion.\\
+\begin{proof}$\phantom{\sum}$\newline
+[Reflexivity] For any $x\in\mathbb{Z}$, we have $x \equiv x(\textrm{mod}\;p)$. Since $p\mid x-x = 0$, the relation $\sim_{p}$ is reflexive.$\phantom{\sum}$\newline
+[Symmetry] Suppose $x\sim_{p}y$, then $x \equiv y(\textrm{mod}\;p)$ which is $p\mid y-x$. \\Also, $p\mid x-y$ because $p\mid -(y-x)$.$\phantom{\sum}$\newline
+[Transitivity] Suppose $x\sim_{p}y$ and $y\sim_{p}z$. We have $p\mid y-x$ and $p\mid z-y$. We add these two to obtain  $p\mid (y-x) + (z-y)$ which is $p\mid z-x$. This is $x\sim_{p}z$.$\phantom{\sum}$\newline
+The relation is an equivalence relation. There are $p$ distinct equivalence classes $[x]$ for $x\in\mathbb{Z}$. There are $p$ possible remainders when dividing an integer by $p$. If $x$ and $y$ have the same remainder when divided by  $p$, then $x\sim_{p}y$. If they have different remainders, then $x\not\sim_{p}y$. There is one equivalence class $[x]$ for each remainder modulo $p$ with $p$ possible remainders.
+\end{proof}
+\noindent\textbf{(b)}\;\;For $x,y\in\mathbb{Z}$ define $x\sim y$ iff $x\mid y$. Is this
+relation reflexive? Symmetric? Transitive? If you answer to any of these is ``yes,'' supply a proof, and if ``no,'' supply a counterexample.\\
+\begin{proof}$\phantom{\sum}$\newline
+[Reflexivity] Let $x\sim x$  for all $x\in\mathbb{Z}$. Then, $x\mid x$ is true by definition for all $x\in\mathbb{Z}$.$\phantom{\sum}$\newline
+[Symmetry] The relation $\sim$ is not symmetric. There are integers $x$ and $y$ such that $x\mid y$ but $y\nmid x$. Let $x=2$ and $y=4$. Then $2\mid 4$ but $4\nmid 2$.$\phantom{\sum}$\newline
+[Transitivity] Let $x\sim y$ and $y\sim z$. Then, $x\mid y$ and $y\mid z$. This means that there exists integers $a,b\in\mathbb{Z}$ such that $y=ax$ and $z=by$. We combine to get $z=bax$ where $ba$ is some random integer. Hence, $x\mid z$.$\phantom{\sum}$\newline
+The given relation $\sim$ is not an equivalence relation because it is reflexive and transitive, but it is not symmetric.
+\end{proof}
+\noindent\textbf{(c)}\;\;Suppose that $\mathscr{R}\left([a,b]\right)$ is the family of all
+Riemann integrable functions on $[a,b]$. (Such functions \textbf{do
+not }have to be continuous.) For $f,g\in\mathscr{R}\left([a,b]\right)$
+we define $f\sim g$ iff 
+\[
+\int_{a}^{b}\vert f(x)\vert\,dx=\int_{a}^{b}\vert g(x)\vert\,dx.
+\]
+If $f\sim g$ and both functions are nonnegative (and so the absolute
+value symbols can be omitted), must it be true that $f=g$? Explain
+your assertion as thoroughly as you are able.\\
+\begin{proof}$\phantom{\sum}$\newline
+[Reflexivity] Let $f\sim f$ such that $\int_{a}^{b}\vert f(x)\vert\,dx=\int_{a}^{b}\vert f(x)\vert\,dx$. This is always true, and the relation is reflexive.$\phantom{\sum}$\newline
+[Symmetry] Suppose $f\sim g$. Then, $\int_{a}^{b}\vert f(x)\vert\,dx=\int_{a}^{b}\vert g(x)\vert\,dx$. on [$a,b$]. The reverse, $\int_{a}^{b}\vert g(x)\vert\,dx=\int_{a}^{b}\vert f(x)\vert\,dx$, is true. Thus, the relation $\sim$ is symmetric.$\phantom{\sum}$\newline
+[Transitivity] Suppose $f,g,h\in\mathscr{R}\left([a,b]\right)$. Let $f\sim g$ and $g\sim h$ such that $\int_{a}^{b}\vert f(x)\vert\,dx=\int_{a}^{b}\vert g(x)\vert\,dx$ and $\int_{a}^{b}\vert g(x)\vert\,dx=\int_{a}^{b}\vert h(x)\vert\,dx$. Then, we have $\int_{a}^{b}\vert f(x)\vert\,dx=\int_{a}^{b}\vert h(x)\vert\,dx$. Thus, the relation $\sim$  is transitive.$\phantom{\sum}$\newline
+The relation $\sim$ is an equivalence relation. It is not true that $f=g$ if $f\sim g$ and both functions are nonnegative. Consider piecewise functions $f(x)$ and $g(x)$ where
+\begin{equation*}
+f(x) = \left\{
+        \begin{array}{ll}
+            1 & \quad -1 \leq x\leq 0\\
+            0 & \quad 0 \leq x\leq 1 
+        \end{array}
+    \right.
+\end{equation*}
+and
+\begin{equation*}
+g(x) = \left\{
+        \begin{array}{ll}
+            0 & \quad -1 \leq x\leq 0\\
+            1 & \quad 0 \leq x\leq 1 
+        \end{array}
+    \right..
+\end{equation*}
+We have different functions $f$ and $g$ where their Riemann integrals are the same, but the functions themselves do not equal each other. Note, there is indeed a period at the end of the display.
+\end{proof}
+\noindent\textbf{(d)}\;\;Define a relation $F$ on $\mathbb{Z}\times\left(\mathbb{Z}\backslash\left\{ 0\right\} \right)$
+by $(a,b)\sim_{F}(c,d)$ iff $ad=bc$.\\
+\begin{proof}$\phantom{\sum}$\newline
+[Reflexivity] For $(a,b)\sim_F (a,b)$ on $\mathbb{Z}\times\left(\mathbb{Z}\backslash\left\{ 0\right\} \right)$, we have $ab=ba$. Thus, the relation $\sim_F$ is reflexive.$\phantom{\sum}$\newline
+[Symmetry] For $(a,b)\sim_F (c,d)$ on $\mathbb{Z}\times\left(\mathbb{Z}\backslash\left\{ 0\right\} \right)$, we have $ad=bc$. For $(c,d)\sim_F (a,b)$, we have $bc=ad$. Thus, the relation $\sim_F$ is symmetric.$\phantom{\sum}$\newline
+[Transitivity] For $(a,b), (c,d), (e,f)\in \mathbb{Z}\times\left(\mathbb{Z}\backslash\left\{ 0\right\} \right)$, let $(a,b)\sim_F (c,d)$ and $(c,d)\sim_F (e,f)$. Then, $ab=bc$ and $cf=de$.  We multiply the two equations to get $adcf=bcde$. Removing the common factor $cd$ , we get $af=be$ which implies $(a,b)\sim_F (e,f)$.$\phantom{\sum}$\newline
+The given relation $\sim_F$ is an equivalence relation on $\mathbb{Z}\times\left(\mathbb{Z}\backslash\left\{ 0\right\} \right)$.
+\end{proof}
+\noindent\textbf{(e)}\;\;For $x\in\mathbb{R}$, define the ``floor function $\left\lfloor x\right\rfloor $
+of $x$'' to be the greatest integer less than or equal to $x$. Define
+a relation $S$ on $\mathbb{R}$ by $x\sim_{S}y$ iff $\lfloor x\rfloor=\lfloor y\rfloor$.
+Prove that this relation is an equivalence relation. Determine all
+of the equivalence classes.\\
+\begin{proof}$\phantom{\sum}$\newline
+[Reflexivity] Let $x\in\mathbb{R}$. Then, $\lfloor x\rfloor=\lfloor x\rfloor$. So, $x\sim_s x$.$\phantom{\sum}$\newline
+[Symmetry] Let $x,y\in\mathbb{R}$ such that $x\sim_s y$. Then, $\lfloor x\rfloor=\lfloor y\rfloor$. So, $\lfloor y\rfloor=\lfloor x\rfloor$ which is $y\sim_s x$. Thus, it is symmetric.$\phantom{\sum}$\newline
+[Transitivity] Let $x,y,z\in\mathbb{R}$ such that $x\sim_s y$ and $y\sim_s z$. Then, $\lfloor x\rfloor=\lfloor y\rfloor$ and $\lfloor y\rfloor=\lfloor z\rfloor$. Thus, $\lfloor x\rfloor=\lfloor z\rfloor$, so $x\sim_s z$.$\phantom{\sum}$\newline
+The given relation $\sim_s$ is an equivalence relation. The equivalence classes of $S$ are in the set $\{x\in\mathbb{R}: \lfloor x\rfloor = n\; \text{for } n\in\mathbb{Z}\}$. Then, the classes form the set $[n,n+1)$ for each integer $n$ for $n\in\mathbb{Z}$.
+\end{proof}
+
+\noindent \textbf{Problem 6: }Let $A$ be a set and let $\Omega$ be \textbf{any }collection of
+subsets of $A$. Define the relation $R_{\Omega}$ on $A$ via $a\sim_{R_{\Omega}}b$
+iff there is $X\in\Omega$ such that $a,b\in X$. $\phantom{\sum}$\newline\\
+\noindent\textbf{(a)}\;\;Prove that if 
+\[
+\bigcup_{X\in\Omega}X=A,
+\]
+then $R_{\Omega}$ is reflexive.\\
+\begin{proof}$\phantom{\sum}$\newline
+[Reflexivity] Let $a\in\bigcup_{X\in\Omega}X$. Then, $a\in X$ for some $X\in\Omega$. Since $a\in X$, we have $a,a\in X$. Thus, $a\sim_{R_{\Omega}}a$.
+\end{proof}
+\noindent\textbf{(b)}\;\;Prove that $R_{\Omega}$ is symmetric.\\
+\begin{proof}$\phantom{\sum}$\newline
+[Symmetry] Suppose that $a\sim_{R_{\Omega}}b$. Then, there exists an $X\in\Omega$ such that $a,b\in X$. Thus, $b\sim_{R_{\Omega}}a$.
+\end{proof}
+\noindent\textbf{(c)}\;\;Suppose that if $X,Y\in\Omega$, then $X\cap Y=\emptyset$ (i.e.,
+$\Omega$ is a pairwise disjoint family). Under this assumption, prove
+that $R_{\Omega}$ is transitive. \\
+\begin{proof}$\phantom{\sum}$\newline
+[Transitivity] Let $a\sim_{R_{\Omega}}b$ and $b\sim_{R_{\Omega}}c$. Then, there is an $X,Y\in\Omega$ such that $a,b\in X$ and $b,c\in Y$. Since $X$ and $Y$ are pairwise disjoint, we know that $b\not\in X\cap Y$. Thus, $X=Y$. Then $a,b,c\in X$. Thus, $a\sim_{R_{\Omega}}c$.\\
+\end{proof}
+\noindent\textbf{(d)}\;\;If $\Omega$ is a partition of $A$, prove that $R_{\Omega}$ is an
+equivalence relation.\\
+\begin{proof}$\phantom{\sum}$\newline
+[Reflexivity] For any $a\in A$, we have $a\in X$ for some $X\in\Omega$. Since $a,a\in X$, we have $a\sim_{R_{\Omega}}a$.$\phantom{\sum}$\newline
+[Symmetry] Suppose that $a\sim_{R_{\Omega}}b$. Then, there exists an $X\in\Omega$ such that $a,b\in X$. Thus, $b\sim_{R_{\Omega}}a$.$\phantom{\sum}$\newline
+[Transitivity] Let $a\sim_{R_{\Omega}}b$ and $b\sim_{R_{\Omega}}c$. Then, there is an $X,Y\in\Omega$ such that $a,b\in X$ and $b,c\in Y$. Since $X$ and $Y$ are pairwise disjoint, we know that $b\not\in X\cap Y$. Thus, $X=Y$. Then $a,b,c\in X$. Thus, $a\sim_{R_{\Omega}}c$.\\
+We have shown that $R_{\Omega}$ is an equivalence relation, \text{d\'{e}j\`{a} vu}.
+\end{proof}
