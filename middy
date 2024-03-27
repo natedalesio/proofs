@@ -360,3 +360,24 @@ From the $L=0$ case above, $\text{so}_{2}-\lim_{n\to\infty}\left(z_{n}-L\right)=
 \end{equation*}
 as required.
 \end{proof}
+
+   \begin{equation*}
+        \begin{aligned}
+            \tau_n&= \frac{nw_1+(n-1)w_2+(n-2)w_3+\cdots+2w_{n-1}+w_n}{1+2+\cdots+n}\\
+            &=\frac{n+(-1)(n-1)+2(n-2)+(-2)(n-3)+\cdots+2(\frac{n}{2})+(\frac{-n}{2})}{1+2+\cdots+n}\\
+            &=\frac{\left[\left(n\right)-\left(n-1\right)\right]+\left[2\left(n-2\right)-2\left(n-3)\right)\right]+\cdots+\left[2\left(\frac{n}{2}\right)-\left(\frac{n}{2}\right)\right]}{1+2+\cdots+n}\\
+            &=\frac{2\left(1+2+\cdots+\frac{n}{2}\right)}{n\left(n+1\right)}\\
+            &=\frac{\left(\frac{n}{2}\right)\left(\frac{n}{2}+1\right)}{n\left(n+1\right)}\\
+            &=\frac{n+2}{4\left(n+1\right)},
+        \end{aligned}
+    \end{equation*}
+    as required. When $n$ is odd, we get
+    \begin{equation*}
+        \begin{aligned}
+            \tau_n&= \frac{nw_1+(n-1)w_2+(n-2)w_3+\cdots+3w_{n-2}+2w_{n-1}+w_n}{1+2+\cdots+n}\\
+            &=\frac{n+(-1)(n-1)+2(n-2)+(-2)(n-3)+\cdots+3(\frac{n-1}{2})+2(\frac{-(n-1)}{2})+(\frac{n+1}{2})}{1+2+\cdots+n}\\
+            &=\frac{\left\{\left[\left(n\right)-\left(n-1\right)\right] +\left[2\left(n-2\right)-2\left(n-3)\right)\right]+\cdots+\left[3\left(\frac{n-1}{2}\right)-\left(2\frac{n-1}{2}\right)\right]\right\}+\left(\frac{n+1}{2}\right)}{1+2+\cdots+n}\\
+            &=\frac{2\left\{\left(1+2+\cdots+\frac{n-1}{2}\right)+\frac{n+1}{2}\right\}}{n\left(n+1\right)}\\
+            &=\frac{\left(\frac{n-1}{2}\right)\left(\frac{n+1}{2}\right)+n+1}{n\left(n+1\right)}\\
+            &=\frac{n^2+4n+3}{4\left(n^2+n\right)}.
+        \end{aligned}
