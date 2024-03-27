@@ -1,0 +1,311 @@
+\subsection*{MTH 471 -- Nate D'Alesio Take-Home Exam 1}
+
+\begin{thm*}
+If 
+\[
+\lim_{n\to\infty}z_{n}=L,
+\]
+then 
+\[
+\text{so}_{1}-\lim_{n\to\infty}z_{n}=L.
+\]
+\end{thm*}
+\begin{xca}
+Prove this theorem. 
+\end{xca}
+
+
+\begin{proof}
+     Let $\lim_{n\to\infty}z_n=L$. We break the proof into two cases. First, let $L=0$ and choose $\epsilon>0$. Then there is a $N_1\in\mathbb{N}$ such that $\left|z_n\right|<\frac{\epsilon}{2}$ for all $n>N_1$. Now let $M:=\max\left\{ \vert z_{1}\vert,\ldots,\vert z_{N_{1}-1}\vert\right\} $. We see
+    
+    \begin{equation*}
+    \begin{aligned}
+        \vert\sigma_n\vert&=\frac{\mid z_1+z_2+\cdots+z_{N_1-\text{1}} +z_{N_1}+\cdots +z_n\mid}{n}\\
+        &\leq\frac{\vert z_1\vert+\vert z_2\vert+\cdots+\mid z_{N_1-\text{1}}\mid+ \mid z_{N_1}\mid+\cdots+\vert z_n\vert}{n}\\
+        &\leq\frac{\left(N_1-1\right)M}{n} + \frac{(n-N_1)\vert z_n\vert}{n}\\
+        &\leq\frac{\left(N_1-1\right)M}{n}+\frac{\epsilon}{2}
+    \end{aligned}
+    \end{equation*}
+    for all $n>N_1$. Then, because $\lim_{n\to\infty}\frac{\left(N-1\right)M}{n}=0$, there exists $N_2\in\mathbb{N}$ such that for all $n>N_2$, we have $\frac{\left(N-1\right)M}{n}<\frac{\epsilon}{2}$. Now, for all $n>N_2$, we see $\vert\sigma_n\vert<\epsilon$ and $\lim_{n\to\infty}\sigma_n=L$
+
+    \noindent For $L\neq 0$, we define $w_{n}:=z_{n}-L$ and see that $\lim_{n\to\infty}w_{n}=0$. This makes
+    \begin{equation*}
+    \begin{aligned}
+        \sigma_n&=\frac{\left(z_1-L\right)+\left(z_2-L\right)+\ldots+\left(z_n-L\right)}{n}\\
+        &=\frac{z_1+z_2+\ldots+z_n}{n}-L
+    \end{aligned}
+    \end{equation*}
+    but from above, because $\lim_{n\to\infty}w_{n}=0$, then $\lim_{n\to\infty}\sigma_{n}=0$ and 
+     \begin{equation*}
+    \begin{aligned}
+        L&=\frac{z_1+z_2+\ldots+z_n}{n}
+    \end{aligned}
+    \end{equation*}
+    as required. 
+\end{proof}
+
+The theorem above tells us that all convergent sequences are $\text{so}_{1}$
+- summable to their limit. We've also seen that the divergent sequence
+$\left\{ (-1)^{n}\right\} _{n=1}^{\infty}$ is $\text{so}_{1}$ -
+summable. However, the sequence $\left\{ n\right\} _{n=1}^{\infty}$
+is not $\text{so}_{1}$ - summable.
+\begin{xca}
+Verify the last assertion just above.\\
+\end{xca}
+\begin{proof}
+    We have 
+    \begin{equation*}
+    \begin{aligned}
+        \sigma_n&=\frac{1+2+3+\ldots+n}{n}\\
+        &=\frac{n\left(n+1\right)}{2n}\\
+        &=\frac{n+1}{2}.
+    \end{aligned}
+    \end{equation*}
+    It is clear that $\lim_{n\to\infty}\sigma_n=\infty$ so it is not $\text{so}_{1}$ - summable.
+\end{proof}
+
+\begin{xca}
+Show that the sequence $1,-1,2,-2,3,-3,\ldots$ is not $\text{so}_{1}$
+- summable by looking at odd $n$ and even $n$ separately. 
+\end{xca}
+
+$\phantom{\vert}$
+\begin{xca}
+Let $\theta\in\mathbb{Q}$. Define 
+\[
+s_{n}=\sin\left(n\theta\pi\right).
+\]
+It turns out that this sequence diverges. (You do not have to show
+this.) By finding an identity for 
+\[
+\sin x+\sin2x+\sin3x+\cdots+\sin nx,
+\]
+\vfill\pagebreak show that 
+\[
+\text{so}_{1}-\lim_{n\to\infty}s_{n}=0.
+\]
+(It's worth noting that the sequence $\left\{ s_{n}\right\} _{n=1}^{\infty}$
+also diverges for irrational $\theta$ and that for irrational $\theta$,
+the same summability result holds.)
+\end{xca}
+
+The following theorem is easy to prove.
+\begin{thm*}
+If $\left\{ s_{n}\right\} _{n=1}^{\infty}$ and $\left\{ t_{n}\right\} _{n=1}^{\infty}$
+are $\text{so}_{1}$ - summable to $L$ and $M$, respectively, then
+$\left\{ s_{n}+t_{n}\right\} _{n=1}^{\infty}$ is $\text{so}_{1}$
+- summable to $L+M$. 
+\end{thm*}
+\begin{xca}
+Prove this theorem.\\
+\end{xca}
+
+We now turn to a different type of summability. 
+\begin{defn*}
+Let $\left\{ z_{n}\right\} _{n=1}^{\infty}$ be a sequence. Define,
+for each $n\in\mathbb{N}$, 
+\begin{align*}
+\tau_{n} & :=\frac{nz_{1}+(n-1)z_{2}+(n-2)z_{3}+\cdots+2z_{n-1}+z_{n}}{1+2+\cdots+n}\\
+ & =\frac{2\left(nz_{1}+(n-1)z_{2}+\cdots+2z_{n-1}+z_{n}\right)}{n(n+1)}.
+\end{align*}
+We say that $\left\{ z_{n}\right\} _{n=1}^{\infty}$ is $\text{so}_{2}$
+- summable to $L$ if $\lim_{n\to\infty}\tau_{n}=L$ and we write
+\[
+\text{so}_{2}-\lim_{n\to\infty}z_{n}=L.
+\]
+\end{defn*}
+It turns out that $\left\{ (-1)^{n}\right\} _{n=1}^{\infty}$ is $\text{so}_{2}$
+- summable to $0$, the same result as for $\text{so}_{1}$ - summability.
+Is it possible that a sequence be $\text{so}_{2}$ - summable but
+not $\text{so}_{1}$ - summable? Define the sequence $\left\{ w_{n}\right\} _{n=1}^{\infty}$
+by 
+\[
+w_{2n}=-n
+\]
+and 
+\[
+w_{2n-1}=n.
+\]
+
+\begin{xca}
+If $n$ is even, show that 
+\[
+\tau_{n}=\frac{n+2}{4(n+1)}
+\]
+and if $n$ is odd show that 
+\[
+\tau_{n}=\frac{n^{2}+4n+3}{4(n^{2}+n)}.
+\]
+What is $\text{so}_{2}-lim_{n\to\infty}w_{n}$ ? \\
+\end{xca}
+
+We see from Exercises 3 and 6 that there is a sequence which is not
+$\text{so}_{1}$ - summable but \emph{is} $\text{so}_{2}$ - summable.
+What happens if our sequence \emph{is} $\text{so}_{1}$ - summable? 
+\begin{thm*}
+If $\text{so}_{1}-\lim_{n\to\infty}z_{n}=L$, then $\text{so}_{2}-\lim_{n\to\infty}z_{n}=L$.
+\vfill\pagebreak{}
+\end{thm*}
+\begin{xca}
+Prove this theorem. 
+\end{xca}
+
+\noindent Hints:\\
+\noindent (1) As before, the proof is accomplished by breaking it
+into the cases $L=0$ and $L\neq0$. 
+
+\noindent (2) In the case $L=0$ you are assuming that $\lim_{n\to\infty}\sigma_{n}=0$. 
+
+(i) Show that 
+\[
+\tau_{n}=\frac{\sigma_{1}+2\sigma_{2}+\cdots+n\sigma_{n}}{1+2+\cdots+n}.
+\]
+
+(ii) Use (i) and argue that, given $\epsilon>0$, there is an $N_{1}\in\mathbb{N}$
+such that if $n\geq N_{1}$, $\vert\sigma_{n}\vert<\epsilon/2$. 
+
+(iii) Set $M=\max\left\{ \vert\sigma_{1}\vert,\ldots,\vert\sigma_{N_{1}-1}\vert\right\} $
+and show that 
+\[
+\vert\tau_{n}\vert\leq\frac{M\left[\sum_{j=1}^{N_{1}-1}j\right]+\frac{\epsilon}{2}\left[\sum_{j=N_{1}}^{n}j\right]}{\sum_{j=1}^{n}j}
+\]
+and conclude that 
+\[
+\vert\tau_{n}\vert<\frac{MN_{1}\left(N_{1}-1\right)}{n(n+1)}+\frac{\epsilon}{2}
+\]
+for $n\geq N_{1}$. 
+
+(iv) Finish the proof just as in Exercise 1 when $L=0$. 
+
+\noindent (3) In the case $L\neq0$, use the fact that $\text{so}_{1}-\lim_{n\to\infty}\left(z_{n}-L\right)=0$
+and apply the $L=0$ case to obtain $\text{so}_{2}-\lim_{n\to\infty}\left(z_{n}-L\right)=0$.
+Write out $\tau_{n}$ for the sequence $\left\{ z_{n}-L\right\} _{n=1}^{\infty}$
+and finish the proof. 
+\begin{proof}
+    We break the proof into cases. First, let $L=0$ and assume $\lim_{n\to\infty}\sigma_{n}=0$. We have 
+    \begin{align*}
+\tau_{n} & :=\frac{nz_{1}+(n-1)z_{2}+(n-2)z_{3}+\cdots+2z_{n-1}+z_{n}}{1+2+\cdots+n}.
+\end{align*}
+and 
+\begin{align*}
+    \sigma_{n}&:=\frac{\sum_{j=1}^{n}z_{j}}{n}
+\end{align*}.
+We see
+\begin{align*}
+    nz_1+(n-1)z_2+\cdots+2z_{n-1}+z_n&=z_1+(z_1+z_2)+(z_1+z_2+z_3)\\&\;\;\;\;+\cdots+(z_1+z_2+\cdots+z_n)\\
+    &=\sigma_1+2\sigma_2+3\sigma_3+\cdots+n\sigma_n
+\end{align*}.
+We have
+\begin{equation*}
+    \tau_{n} = \frac{\sigma_1+2\sigma_2+\cdots+n\sigma_n}{1+2+\cdots+n}.
+\end{equation*}
+
+\end{proof}
+
+
+\begin{xca}
+Prove that if $\left\{ z_{n}\right\} _{n=1}^{\infty}$ converges to
+$L$ then $\left\{ z_{n}\right\} _{n=1}^{\infty}$ is $\text{so}_{2}$
+- summable to $L$. 
+\end{xca}
+\begin{proof}
+    
+\end{proof}
+
+
+\begin{xca}
+Prove that $\left\{ f_{n}\right\} _{n=1}^{\infty}$ converges uniformly
+to $f$ on $D$ if and only if 
+\[
+\lim_{n\to\infty}\sup_{x\in D}\vert f_{n}(x)-f(x)\vert=0.
+\]
+\end{xca}
+\begin{proof}
+    $\left(\Leftarrow\right)$ Assume $
+\lim_{n\to\infty}\sup\{\vert f_{n}(x)-f(x)\vert: x\in D\}=0$. Let $\epsilon > 0$. Then, there is a $N\in\mathbb{N}$ such that when $n>N$, then $\sup\{\vert f_{n}(x)-f(x)\vert: x\in D\}<\epsilon$. Then, for any $x\in D$, 
+\begin{equation*}
+    \mid f_n(x)-f(x) \mid \leq \sup\{\vert f_{n}(x)-f(x)\vert: x\in D\} < \epsilon.
+\end{equation*}
+So, $f_n$ converges uniformly on $D$.\\
+$\left(\Rightarrow\right)$ Now, assume that $f_n$ converges to $f$ uniformly on $D$. Let $\epsilon>0$. Then, there is a $N\in\mathbb{N}$ such that when $n>N$, then for any $x\in D$, $\mid f_n(x)-f(x)\mid<\frac{\epsilon}{2}$. Then,
+\begin{equation*}
+    0\leq \sup\{\vert f_{n}(x)-f(x)\vert: x\in D\}\leq \frac{\epsilon}{2}<\epsilon.
+\end{equation*}
+\end{proof}
+
+\begin{xca}
+Prove Theorem 3.1.10 of Taylor (that is, ``uniformly Cauchy if and
+only if uniformly convergent.'')
+\end{xca}
+\begin{proof}
+$\left(\Leftarrow\right)$ Suppose that $\{ f_n\}_{n=1}^\infty$ converges uniformly to $f$ on $D$. Given $\epsilon>0$, there exists $N\in\mathbb{N}$ such that 
+\begin{equation*}
+    \mid f_n(x)-f(x)\mid < \frac{\epsilon}{2}
+\end{equation*}
+for all $x\in D$ if $n>N$. Then, if $n,m> N$, we have 
+\begin{equation*}
+\begin{aligned}
+    \mid f_m(x)-f_n(x)\mid &\leq \mid f_m(x) - f(x)\mid + \mid f(x)-f_n(x)\mid\\ 
+    & < \frac{\epsilon}{2} + \frac{\epsilon}{2}\\
+    & = \epsilon.
+    \end{aligned}
+\end{equation*}
+So, $\{ f_n\}_{n=1}^\infty$ is uniformly Cauchy.\\
+$\left(\Rightarrow\right)$ Now, suppose $\{ f_n\}_{n=1}^\infty$ is uniformly Cauchy. Then, for each $x\in D$, $\{ f_n\}_{n=1}^\infty$ is Cauchy and thus converges by completeness of $\mathbb{R}$. We define $f:D\rightarrow\mathbb{R}$ by
+\begin{equation*}
+    f(x)= \lim_{n\to \infty}f_n(x),
+\end{equation*}
+and we will show $f_n$ converges to $f$ uniformly. Given $\epsilon>0$, choose $N\in\mathbb{N}$ such that $n,m>N$ and $x\in D$. Then,
+\begin{equation*}
+    \mid f_m(x) - f_n(x)<\frac{\epsilon}{2}
+\end{equation*}
+for all $x\in D$ if $m,n >N$. We can choose $m>N$ such that 
+\begin{equation*}
+    \mid f_m(x)-f(x)\mid < \frac{\epsilon}{2}.
+\end{equation*}
+For $n,m>N$ and $x\in D$, we have 
+\begin{equation*}
+    \begin{aligned}
+        \mid f_n(x) - f(x)\mid & \leq \mid f_n(x)-f_m(x)\mid + \mid f_m(x)-f(x)\mid \\
+        &< \frac{\epsilon}{2} +  \frac{\epsilon}{2}\\
+        &= \epsilon .
+    \end{aligned}
+\end{equation*}
+So, $f_n$ converges to $f$ uniformly.
+\end{proof}
+
+\begin{xca}
+Let $\left\{ f_{n}(x)\right\} _{n=1}^{\infty}$ be a sequence of continuous
+functions on the \textbf{\emph{compact }}domain $D$. Suppose that,
+for any $x\in D$, 
+\[
+f_{1}(x)\leq f_{2}(x)\leq\cdots\leq f_{n}(x)\leq\cdots.
+\]
+If $\left\{ f_{n}(x)\right\} _{n=1}^{\infty}$ converges \emph{point-wise
+}on D to the continuous function $f(x)$, prove that $\left\{ f_{n}(x)\right\} _{n=1}^{\infty}$
+converges uniformly to $f$ on $D$. 
+\end{xca}
+
+\begin{proof}
+    For each $n\in\mathbb{N}$ define $g_{n}(x)=f(x)-f_{n}(x)$. To show $\{g_n(x)\}_{n=1}^\infty$ converges point-wise to 0, given $\epsilon >0$  for each $x\in D$, there is a $N\in\mathbb{N}$ with $n>N$ such that $\mid f_n(x)-f(x)\mid < \epsilon$. Then, $\mid g_n(x)-0\mid <\epsilon$. Now, we will show $\{g_n(x)\}_{n=1}^\infty$ converges uniformly to 0. Since $\{g_n(x)\}_{n=1}^\infty$ converges point-wise to 0, fix an $\epsilon>0$. For $x\in D$, there is a $N_x\in\mathbb{N}$, $N_x>0$, where $n>N_x$ and $\mid g_{N_x}\mid<\frac{\epsilon}{2}$. For $\delta>0$, there is an open $B_x$ for $x,y\in B_x$ where $\mid x-y\mid<\delta$. Then, we have $\mid g_{N_x}(y)-g_{N_x}(x)\mid<\frac{\epsilon}{2}$. We get
+    \begin{equation*}
+        -\frac{\epsilon}{2}<g_{N_x}(y)-g_{N_x}(x)<\frac{\epsilon}{2},
+    \end{equation*}
+    and it follows that 
+    \begin{equation}
+        \begin{aligned}
+        \label{eqn}
+        g_{N_x}(y)&<\frac{\epsilon}{2}+g_{N_x}(x)\\
+        &<\frac{\epsilon}{2}+\frac{\epsilon}{2}\\
+        &=\epsilon.
+        \end{aligned}
+    \end{equation}
+    We say $\{B_x:x\in D\}$ is an open cover of $D$ because for $x\in D$, we have $x\in B_x$ then $\bigcup\limits_{x\in D}B_x$ . Since the domain $D$ is compact, there is finite points $x_1,x_2,\ldots,x_r\in D$ where $\bigcup\limits_{i=1}^{r} B_{x_i}$ is a finite subcover. There are $N_{x_1},N_{x_2},\ldots,N_{x_r}$ for $B_{x_1},B_{x_2},\ldots,B_{x_r}$. Let $N=\text{max}\{N_{x_1},N_{x_2},\ldots,N_{x_r}\}$. Then, for any $y\in D$, we have $y\in B_{x_i}$ for some $i\in 1,2,\ldots,r$. We see from (\ref{eqn}) that
+    \begin{equation*}
+        0\leq g_N(y)<\epsilon.
+    \end{equation*}
+    We also see that $g_N(y)$ is always greater than 0 by definition since $\{f_n\}_{n=1}^\infty$ converges to $f(x)$. Since $f_{1}(x)\leq f_{2}(x)\leq\cdots\leq f_{n}(x)\leq\cdots$ is increasing and $f(x)\geq f_n(x)$ for all $n\in\mathbb{N}$, then $g_n(x)$ is decreasing by definition. For any $n\geq N$ and any $y\in D$, we conclude
+    \begin{equation*}
+        0\leq g_n(y) \leq g_N(y)<\epsilon.
+    \end{equation*}
+\end{proof}
