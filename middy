@@ -309,3 +309,54 @@ converges uniformly to $f$ on $D$.
         0\leq g_n(y) \leq g_N(y)<\epsilon.
     \end{equation*}
 \end{proof}
+
+\begin{proof}
+    We break the proof into cases. First, let $L=0$ and assume $\lim_{n\to\infty}\sigma_{n}=0$. We have 
+    \begin{align*}
+\tau_{n} & :=\frac{nz_{1}+(n-1)z_{2}+(n-2)z_{3}+\cdots+2z_{n-1}+z_{n}}{1+2+\cdots+n}.
+\end{align*}
+and 
+\begin{align*}
+    \sigma_{n}&:=\frac{\sum_{j=1}^{n}z_{j}}{n}.
+\end{align*}
+We see
+\begin{align*}
+    nz_1+(n-1)z_2+\cdots+2z_{n-1}+z_n&=z_1+(z_1+z_2)+(z_1+z_2+z_3)\\&\;\;\;\;+\cdots+(z_1+z_2+\cdots+z_n)\\
+    &=\sigma_1+2\sigma_2+3\sigma_3+\cdots+n\sigma_n.
+\end{align*}
+We have
+\begin{equation*}
+    \tau_{n} = \frac{\sigma_1+2\sigma_2+\cdots+n\sigma_n}{1+2+\cdots+n}.
+\end{equation*}
+Given $\epsilon>0$, choose $N_1\in\mathbb{N}$ such that if $n\geq N_1$, then $\mid \sigma_n\mid<\frac{\epsilon}{2}$. Set $M=\text{max}\{\mid\sigma_1\mid,\ldots,\mid\sigma_{N-1}\mid\}$. We see for $n\geq N_1$ that
+\begin{align*}
+    \mid\tau_n\mid&= \frac{\mid\sigma_1+2\sigma_2+\cdots+(N_1-\text{1})\sigma_{N_1-\text{1}}+N_1\sigma_N+\cdots+n\sigma_n\mid}{1+2+\cdots+n}\\
+    &\leq\frac{M\left[\sum_{j=1}^{N_{1}-1}j\right]+\frac{\epsilon}{2}\left[\sum_{j=N_{1}}^{n}j\right]}{\sum_{j=1}^{n}j}\\
+    &= \frac{MN_{1}\left(N_{1}-1\right)}{n(n+1)}+\frac{\frac{\epsilon}{2}\left[\sum_{j=N_{1}}^{n}j\right]}{\sum_{j=1}^{n}j}\\
+    &<\frac{MN_{1}\left(N_{1}-1\right)}{n(n+1)}+\frac{\epsilon}{2}.
+\end{align*}
+Since $\lim_{n\to\infty}\frac{MN_{1}\left(N_{1}-1\right)}{n(n+1)}=0$, choose $N_2\in\mathbb{N}$ such that 
+\begin{equation*}
+    \frac{MN_{1}\left(N_{1}-1\right)}{N_2(N_2+1)}<\frac{\epsilon}{2}.
+\end{equation*}
+Then, for $n\geq N_2$, we have
+\begin{equation*}
+    \frac{MN_{1}\left(N_{1}-1\right)}{n(n+1)}<\frac{\epsilon}{2}
+\end{equation*}
+We conclude for $n\geq N_2$
+\begin{align*}
+    \mid\tau_n\mid&< \frac{\epsilon}{2}+\frac{\epsilon}{2}\\
+    &=\epsilon,
+\end{align*}
+and $\lim_{n\to\infty}\tau_n=0$. Now, let $L\neq0$. We know $\text{so}_{1}-\lim_{n\to\infty}\left(z_{n}-L\right)=0$. So, we take $\text{so}_{2}-\lim_{n\to\infty}\left(z_{n}-L\right)$, and we get
+\begin{align*}
+    \tau_n & =\frac{n(z_{1}-L)+(n-1)(z_{2}-L)+(n-2)(z_{3}-L)+\cdots+2(z_{n-1}-L)+(z_{n}-L)}{1+2+\cdots+n}\\
+    &=\frac{nz_{1}+(n-1)z_{2}+(n-2)z_{3}+\cdots+2z_{n-1}+z_{n}}{1+2+\cdots+n}-L\left(\frac{1+2+\cdots+n}{1+2+\cdots+n}\right)\\
+    & = \frac{nz_{1}+(n-1)z_{2}+(n-2)z_{3}+\cdots+2z_{n-1}+z_{n}}{1+2+\cdots+n} - L.
+\end{align*}
+From the $L=0$ case above, $\text{so}_{2}-\lim_{n\to\infty}\left(z_{n}-L\right)=0$ so  $\lim_{n\to\infty}\tau_n = 0$ and 
+\begin{equation*}
+    L = \frac{nz_{1}+(n-1)z_{2}+(n-2)z_{3}+\cdots+2z_{n-1}+z_{n}}{1+2+\cdots+n}
+\end{equation*}
+as required.
+\end{proof}
