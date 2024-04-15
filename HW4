@@ -246,6 +246,42 @@ equal to $x$, carefully derive the following.
 \item $\zeta(s)=s\int_{1}^{\infty}\frac{\left[x\right]}{x^{s+1}}dx$ 
 \item $\zeta(s)=\frac{s}{s-1}-s\int_{1}^{\infty}\frac{x-\left[x\right]}{x^{s+1}}dx$. 
 \end{enumerate}
+\begin{proof}
+    We have
+    \begin{equation*}
+        \begin{aligned}      \zeta(s)&=s\int_{1}^{\infty}\frac{\left[x\right]}{x^{s+1}}dx\\ &=\sum_{n=1}^{\infty}n\int_{n}^{n+1}\frac{1}{x^{s+1}}dx\\
+        &=\sum_{n=1}^{\infty}n\left[\frac{1}{n^ss}-\frac{1}{(n+1)^ss}\right]\\
+        &=s\left[\frac{1}{s}-\frac{1}{2^ss}\right]+2s\left[\frac{1}{2^ss}-\frac{1}{3^ss}\right]+3s\left[\frac{1}{3^ss}-\frac{1}{4^ss}\right]+\cdots+ns\left[\frac{1}{n^ss}-\frac{1}{(n+1)^ss}\right]\\
+        &=\sum_{n=1}^{\infty}\frac{1}{n^{s}}.\\
+        \end{aligned}
+    \end{equation*}
+    Now, we have 
+    \begin{equation*}
+        \begin{aligned}
+            \zeta(s)&=\frac{s}{s-1}-s\int_{1}^{\infty}\frac{x-\left[x\right]}{x^{s+1}}dx\\
+            \text{and so}\\
+            &=\frac{s}{s-1}-s\sum_{n=1}^{\infty}\int_{n}^{n+1}\frac{x}{x^{s+1}}dx+s\int_{1}^{\infty}\frac{\left[x\right]}{x^{s+1}}dx.\\
+            \text{We see}\\
+            &=\frac{s}{s-1}-s\sum_{n=1}^{\infty}\left[\frac{n}{n^ss-n^s}-\frac{n+1}{(n+1)^ss-(n+1)^s}\right]+s\int_{1}^{\infty}\frac{\left[x\right]}{x^{s+1}}dx.
+        \end{aligned}
+    \end{equation*}
+Looking at partial sums, we see that 
+    \begin{equation*}
+    \begin{aligned}
+    \frac{s}{s-1}-s\sum_{n=1}^{\infty}\left[\frac{n}{n^ss-n^s}-\frac{n+1}{(n+1)^ss-(n+1)^s}\right]+s\int_{1}^{\infty}\frac{\left[x\right]}{x^{s+1}}dx\\
+        =\frac{s}{s-1}-s\left[\frac{1}{s-1^s}-\frac{2}{2^ss-2^s}\right]+s\left[\frac{2}{2s-2^s}-\frac{3}{3^ss-3^s}\right]+\cdots\\
+            \;\;\;+\left[\frac{n}{n^ss-n^s}-\frac{n+1}{(n+1)^ss-(n+1)^s}\right]+s\int_{1}^{\infty}\frac{\left[x\right]}{x^{s+1}}dx.
+    \end{aligned}
+    \end{equation*}
+    As $n$ approaches infinity, the inside terms cancel and the remainder approaches 0. Therefore, we conclude
+    \begin{equation*}
+        \begin{aligned}
+            \frac{s}{s-1}&-s\left[\frac{1}{s-1^s}-\frac{2}{2^ss-2^s}\right]+s\left[\frac{2}{2s-2^s}-\frac{3}{3^ss-3^s}\right]+\cdots\\
+            &\;\;\;+\left[\frac{n}{n^ss-n^s}-\frac{n+1}{(n+1)^ss-(n+1)^s}\right]+s\int_{1}^{\infty}\frac{\left[x\right]}{x^{s+1}}dx\\
+            &=\sum_{n=1}^{\infty}\frac{1}{n^{s}}.
+        \end{aligned}
+    \end{equation*}
+\end{proof}
 
 
 
