@@ -321,9 +321,16 @@ f^{\prime\prime\prime}(x)=\frac{4\sqrt{2}k^{2}\cos(x)\sin(x)\left(4-3k^{2}\cos^{
     For  some $c\in[0,\pi]$, the upper bound on the error is found by 
     \begin{equation*}
         \begin{aligned}
-            R_2(t)&= \frac{4\sqrt{2}k^{2}\cos(c)\sin(c)\left(4-3k^{2}\cos^{2}(c)-5k^{2}\sin^{2}(c)+k^{4}\sin^{4}(c)\right)}{6(2-k^{2}+k^{2}\cos(2c))^{5/2}}t^3\\
-            &\leq \frac{4\sqrt{2}k^2(4-3-5+1)}{12(2)^{\frac{5}{2}}}t^3.
+            R_3(t)&= \frac{4\sqrt{2}k^{2}\cos(c)\sin(c)\left(4-3k^{2}\cos^{2}(c)-5k^{2}\sin^{2}(c)+k^{4}\sin^{4}(c)\right)}{6(2-2k^{2}(1-\cos(2c))^{5/2}}\int_{0}^\pi t^3 dt\\ 
+    &=\frac{4\pi\sqrt{2}k^{2}\cos(c)\sin(c)\left(4-3k^{2}\cos^{2}(c)-5k^{2}\sin^{2}(c)+k^{4}\sin^{4}(c)\right)}{24(2-2k^{2}\sin^2(c))^{5/2}}.\\
         \end{aligned}
     \end{equation*}
-\end{proof}
+    We can bound this by
+    \begin{equation*}
+        \begin{aligned}
+            \mid R_2(t)\mid&= \bigg|\frac{4\pi\sqrt{2}k^{2}\cos(c)\sin(c)\left(4-3k^{2}\cos^{2}(c)-5k^{2}\sin^{2}(c)+k^{4}\sin^{4}(c)\right)}{24(2-2k^{2}\sin^2(c))^{5/2}}\bigg|\\
+            &\leq\frac{4\pi\sqrt{2}k^{2}\mid\cos(c)\mid\mid\sin(c)\mid\left(4-\mid3k^{2}\cos^{2}(c)\mid-\mid5k^{2}\sin^{2}(c)\mid+\mid k^{4}\sin^{4}(c)\mid\right)}{24(\mid2-2k^{2}\sin^2(c)\mid)^{5/2}}\\
+            &\leq\frac{4\pi\sqrt{2}k^{2}\left(4-8k^2+k^4\right)}{24(2-2k^{2})^{5/2}}.
+        \end{aligned}
+    \end{equation*}
 \end{document}
