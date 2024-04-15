@@ -1,0 +1,290 @@
+\begin{document}
+
+\subsection*{Nate D'Alesio MTH 471 Asssignment 4}
+
+\begin{enumerate}
+%1
+\item Carefully show that, given any $\eta>0$, there is a partition $\mathscr{P}$
+of $[a,b]$ for which every subinterval $[x_{j-1},x_{j}]$ has length
+$x_{j}-x_{j-1}$ strictly less than $\eta$. 
+\begin{proof}
+    Given any $\eta>0$ and with the interval $[a,b]$ for $b>a$ and $a,b\in\mathbb{R}$, we use the partition,
+\[
+P_{n}:=\left\{ a,a+\frac{b-a}{n},a+\frac{2(b-a)}{n},\ldots,a+\frac{(n-1)(b-a)}{n},b\right\} 
+\]
+    for $n\in\mathbb{N}$. Every subinterval looks like $\left[a+\frac{(k-1)(b-a)}{n},a+\frac{k(b-a)}{n}\right]$ for
+    $k=1,\ldots,n$ where it has the length $\frac{(b-a)}{n}$. Since $\lim_{n\to\infty}\frac{(b-a)}{n}=0$, there exists an $N\in\mathbb{N}$ where $N=\frac{(b-a)}{\eta}$ such that for every $n>N$ then any subinterval in $P_n$ has a length strictly less than $\eta$.
+\end{proof}
+
+
+%2
+\item Let $f(x)=16x-6x^{2}-2x^{3}+\frac{x^{4}}{2}$, $-3\leq x\leq2$. By
+using only upper or lower sums (or combinations of both), determine
+the exact value of 
+\[
+\int_{-3}^{2}f(x)\,dx.
+\]
+
+
+%3
+\item Suppose that $f:[a,b]\rightarrow\mathbb{R}$ is continuous. Let 
+\[
+P_{n}:=\left\{ a,a+\frac{b-a}{n},a+\frac{2(b-a)}{n},\ldots,a+\frac{(n-1)(b-a)}{n},b\right\} .
+\]
+If $x_{k}^{\ast}$ is any point in the interval $\left[\frac{(k-1)(b-a)}{n},\frac{k(b-a)}{n}\right]$,
+$k=1,\ldots,n$, show that 
+\[
+L\left(f,P_{n}\right)\leq\sum_{k=1}^{n}f\left(x_{k}^{\ast}\right)\frac{(b-a)}{n}\leq U\left(f,P_{n}\right).
+\]
+Then show that 
+\[
+\lim_{n\to\infty}\sum_{k=1}^{n}f\left(x_{k}^{\ast}\right)\frac{(b-a)}{n}=\int_{a}^{b}f(x)\,dx.
+\]
+Hint: Use the uniform continuity of $f$ to show that for sufficiently
+large $n$, $U(f,P_{n})-L(f,P_{n})<\epsilon$. Conclude that 
+\[
+U(f,P_{n})-\int_{a}^{b}f\,dx<\epsilon
+\]
+for large enough $n$ and hence that 
+\[
+\lim_{n\to\infty}U(f,P_{n})=\int_{a}^{b}f\,dx.
+\]
+Similarly show that 
+\[
+\lim_{n\to\infty}L(f,P_{n})=\int_{a}^{b}f\,dx.
+\]
+Now finish your proof.
+\begin{proof}
+    Define \[M_k:= \sup\left\{f(x):x\in\left[\frac{(k-1)(b-a)}{n},\frac{k(b-a)}{n}\right],\;k\in\{1,\ldots,n\}\; \text{and}\; n\in\mathbb{N}\right\}\] and
+    \[m_k:= \inf\left\{f(x):x\in\left[\frac{(k-1)(b-a)}{n},\frac{k(b-a)}{n}\right],\;k\in\{1,\ldots,n\}\; \text{and}\; n\in\mathbb{N}\right\}.\] Then, $m_k\leq f(x^{\ast})\leq M_k$. Since the length of any subinterval in $P_n$ for any $n$ is $\frac{(b-a)}{n}$, we get\[
+L\left(f,P_{n}\right)\leq\sum_{k=1}^{n}f\left(x_{k}^{\ast}\right)\frac{(b-a)}{n}\leq U\left(f,P_{n}\right).
+\] We have $f$ is uniformly continuous on $[a,b]$. So, let $\epsilon,\delta>0$. Then for any $x,y\in[a,b]$, we see $\vert f(x)-f(y)\vert<\frac{\epsilon}{b-a}$ when $\vert x-y\vert<\delta$. Using $P_n$ and the fact that $\frac{(b-a)}{n}<\delta$ for large enough $n$, we get $M_k-m_k<\frac{\epsilon}{b-a}$. Since 
+\begin{equation*}
+\begin{aligned}
+     U\left(f,P_{n}\right)-L\left(f,P_{n}\right)=&\sum_{k=1}^{n}f\left(x_{k}^{\ast}\right)\frac{(b-a)}{n}\\
+     &<\epsilon,
+\end{aligned}
+\end{equation*}
+then
+\begin{equation*}
+\begin{aligned}
+     \left\vert U(f,P_{n})-\int_{a}^{b}f\,dx\right\vert
+    &\leq 
+\left\vert U\left(f,P_{n}\right)-L\left(f,P_{n}\right)\right\vert\\
+     &<\epsilon.
+\end{aligned}
+\end{equation*}
+ From this, we have \[\lim_{n\to\infty}U(f,P_{n})=\int_{a}^{b}f\,dx\] and
+ \begin{equation*}
+\begin{aligned}
+    \left\vert\int_{a}^{b}f\,dx-L(f,P_{n})\right\vert
+    &\leq \left\vert U\left(f,P_{n}\right)-L\left(f,P_{n}\right)\right\vert\\
+     &<\epsilon.
+\end{aligned}
+\end{equation*}
+So, \[\lim_{n\to\infty}L(f,P_{n})=\int_{a}^{b}f\,dx.\]
+By the squeeze theorem, we conclude \[
+\lim_{n\to\infty}\sum_{k=1}^{n}f\left(x_{k}^{\ast}\right)\frac{(b-a)}{n}=\int_{a}^{b}f(x)\,dx.
+\]
+\end{proof}
+
+
+%4
+\item Carefully prove that 
+\[
+\frac{2\pi^{2}}{9}\leq\int_{\pi/6}^{\pi/2}\frac{2x}{\sin x}\,dx\leq\frac{4\pi^{2}}{9}.
+\]
+\begin{proof}
+    Note that \[f^{\prime}(x)=\frac{d}{dx}2x \csc(x)=2\csc(x)\left(1-x\cot(x)\right).\] We see $f^{\prime}(x)\geq0$ for $x\in\left[\frac{\pi}{6},\frac{\pi}{2}\right]$. Then, $f(x)$ has a minimum on the given interval at $f^{\prime}(\frac{\pi}{6})=\frac{2\pi}{3}$ and a maximum at $f^{\prime}(\frac{\pi}{3})=\frac{4\pi}{3}.$ Define a partition $\mathscr{P}=[a,b]$, then $L\left(f,\mathscr{P}\right)=\frac{2\pi^2}{9}$ and $U\left(f,\mathscr{P}\right)=\frac{4\pi^2}{9}$.
+\end{proof}
+
+%5
+\item Prove that if 
+\[
+\frac{a_{0}}{n+1}+\frac{a_{1}}{n}+\cdots+\frac{a_{n-1}}{2}+a_{n}=0,
+\]
+then the polynomial equation 
+\[
+a_{0}x^{n}+a_{1}x^{n-1}+\cdots+a_{n-1}x+a_{n}=0
+\]
+ has at least one root in $(0,1)$. 
+ \begin{proof}
+     Let \[f(x)=\frac{a_{0}x^{n+1}}{n+1}+\frac{a_{1}x^{n}}{n}+\cdots+\frac{a_{n-1}x^2}{2}+xa_{n}.\] Then, we have 
+     \[
+    f^{\prime}(x)=a_{0}x^{n}+a_{1}x^{n-1}+\cdots+a_{n-1}x+a_{n}.
+    \] Since $f(0)=0\;\text{and}\;f(1)=0$, the Mean Value Theorem guarantees at least one root in $(0,1)$ for \[
+a_{0}x^{n}+a_{1}x^{n-1}+\cdots+a_{n-1}x+a_{n}=0.
+\]
+ \end{proof}
+
+
+ %6
+\item Suppose that $f:\mathbb{R}\rightarrow\mathbb{R}$ satisfies 
+\[
+\lvert f(x)-f(y)\rvert<C(x-y)^{2}
+\]
+for all $x,y\in\mathbb{R}$ and some positive constant $C$. Prove that $f$ is a constant
+function. 
+\begin{proof}
+    For $x\neq y$ and $x,y\in\mathbb{R}$, we have
+    \begin{equation*}
+        \frac{\mid f(x)-f(y)\mid}{\mid x-y\mid}\leq C\mid x-y\mid
+    \end{equation*}
+    from the above inequality. Then, we have
+    \begin{equation*}
+        \begin{aligned}
+            \mid f'(y)\mid&=\bigg|\lim_{x \to y}\frac{f(x)-f(y)}{x-y}\bigg|\\
+            &=\lim_{x \to y}\bigg|\frac{f(x)-f(y)}{x-y}\bigg|\\
+            &\leq\lim_{x \to y}C\mid x-y\mid\\
+            &=0.
+        \end{aligned}
+    \end{equation*}
+    Therefore, for every $y\in\mathbb{R}$, $f'(y)$ exists and is zero. By the Mean Value Theorem, we conclude $f$ is constant because the derivative is zero everywhere.
+\end{proof}
+
+
+%7
+\item Suppose that $a\in\mathbb{R}$ and that $f$ is a twice-differentiable
+function on $(a,\infty)$. Let $M_{0},M_{1}$ and $M_{2}$ are the
+least upper bounds of $\lvert f(x)\rvert$, $\lvert f^{\prime}(x)\rvert$
+and $\lvert f^{\prime\prime}(x)\rvert$, respectively, on $(a,\infty)$.
+Prove that 
+\[
+M_{1}^{2}\leq4M_{0}M_{2}.
+\]
+\begin{proof}
+    Let $h>0$. By Taylor's Theorem, for some $\xi\in(x,x+2h)$, we have
+    \begin{equation*}
+        f(x+2h)= f(x)+f'(x)(2h)+\frac{1}{2}f''(\xi)(2h)^2.
+    \end{equation*}
+    Then, we have
+    \begin{equation*}
+    \begin{aligned}
+        \mid f'(x)\mid &= \bigg|\frac{f(x+2h)-f(x)}{2h} - hf''(\xi)\bigg|\\
+        & \leq \bigg|\frac{f(x+2h)-f(x)}{2h}\bigg| +\mid hf''(\xi)\mid\\
+        & \leq \frac{M_o+M_o}{2h}+hM_2\\
+        &= \frac{M_o}{h}+hM_2.
+    \end{aligned}
+    \end{equation*}
+     This implies $M_1\leq \frac{M_o}{h}+hM_2$ which holds for all $h>0$. We choose $h=\sqrt{\frac{M_o}{M_2}}$ and have
+     \begin{equation*}
+     \begin{aligned}
+         M_1&\leq \frac{M_o}{\sqrt{\frac{M_o}{M_2}}}+\sqrt{\frac{M_o}{M_2}}M_2\\
+         &=2\sqrt{M_oM_2}
+         \end{aligned}
+     \end{equation*}
+     and hence $M_1^2\leq 4M_oM_2$.
+\end{proof}
+
+
+%8
+\item Suppose that $f$ is a real-valued function with domain $\mathbb{R}$.
+Call $\vartheta$ a fixed point of $f$ if $f(\vartheta)=\vartheta$.
+Do the following.
+\begin{enumerate}
+
+\item If $f$ is differentiable with $f^{\prime}(x)\neq1$ for every $x\in\mathbb{R}$,
+prove that $f$ can have at most one fixed point. 
+\item Let 
+\[
+g(x)=x+\frac{1}{1+e^{x}}.
+\]
+Show that $0<g^{\prime}(x)<1$ for all $x\in\mathbb{R}$ but $g$
+has no fixed point. 
+\item Suppose now that there is a constant $A<1$ such that $\lvert f^{\prime}(x)\rvert<A$
+for all $x\in\mathbb{R}$. Prove that $f$ has a fixed point $\vartheta_{0}$
+and that $\vartheta_{0}=\lim_{n\to\infty}\vartheta_{n}$ where $\vartheta_{1}$
+is an arbitrary real number and $\vartheta_{n+1}=f\left(\vartheta_{n}\right)$
+for $n\in\mathbb{N}$. 
+\end{enumerate}
+\begin{proof}
+    Assume $f$ has more than one fixed point. Choose $x$ and $y$ such that $x\neq y$. Then, $f(x)=x$ and $f(y)=y$. By the Mean Value Theorem, there exists some $\alpha\in(x,y)$ such that 
+    \begin{equation*}
+    \begin{aligned}
+        f'(\alpha) &= \frac{f(x)-f(y)}{x-y}\\
+        &=\frac{x-y}{x-y}\\
+        &=1,
+    \end{aligned}
+    \end{equation*}
+    a contradiction.\\
+    Suppose $x$ is a fixed point of $g$. Then, $g(x)=x+\frac{1}{1+e^x}$. However, $\frac{1}{1+e^x}\neq0$ for all $x\in\mathbb{R}$. But, we have $g'(x)=1-\frac{e^x}{(1+e^x)^2}$. Then, $\frac{e^x}{(1+e^x)^2}>0$ and $(1+e^x)^2>e^x$ so $0<g'(x)<1$.
+    \\
+    We have $f'$ as bounded since $\mid f'(\vartheta)\mid<A<1$ and $f$ is uniformly continuous, then we see $\{\vartheta_n\}_{n=1}^\infty$ is a Cauchy sequence. If, $n>m>N$ for $n,m,N\in\mathbb{N}$ we have
+    \begin{equation*}
+        \begin{aligned}
+            \mid \vartheta_n-\vartheta_m\mid &\leq \mid \vartheta_n - \vartheta_{n-1}\mid+ \mid \vartheta_{n-1}-\vartheta_{n-2}\mid+\cdots+\mid \vartheta_{m+1}-\vartheta_m\mid.
+        \end{aligned}
+    \end{equation*}
+    We see by induction, using the Mean Value Theorem and $\mid f'(\vartheta)\mid<A$ for all $\vartheta$, that
+    \begin{equation*}
+        \mid \vartheta_{n+1}-\vartheta\mid \leq A^{n-1}\mid \vartheta_2-\vartheta_1\mid
+    \end{equation*}
+    for $n\in\mathbb{N}$, $n\geq1$. For $n>m>N$, where $n,m,N\in\mathbb{N}$, we have
+    \begin{equation*}
+        \begin{aligned}
+            \mid \vartheta_n-\vartheta_m\mid &\leq \mid \vartheta_2-\vartheta_1\mid \left(A^{n-2}+A^{n-3}+\cdots+A^{m-1}\right)\\
+            &<\frac{1}{1-A}A^{m-1}\mid \vartheta_2-\vartheta_1\mid\\
+            &\leq \frac{\mid \vartheta_2-\vartheta_1\mid}{1-A}A^N.
+        \end{aligned}
+    \end{equation*}
+    It follows $\lim_{N \to \infty}\frac{\mid \vartheta_2-\vartheta_1\mid}{1-A}A^N = 0$ which shows this is a Cauchy sequence. Let $\vartheta_o$ be its limit. We claim that $\vartheta_o$ is a fixed point. Then, we get $\vartheta_o=\lim_{n \to \infty}\vartheta_n= \lim_{n \to \infty}\vartheta_{n+1}=\lim_{n \to \infty}f(\vartheta_n)=f(\vartheta_o)$, by continuity of $f$. There is only one fixed point because of result in $(a)$.
+\end{proof}
+
+
+%9
+\item In this problem we will use an improper integral of the form $\int_{1}^{\infty}g(x)\,dx$.
+You may wish to review this type of integral by reading Taylor and/or
+your calculus book.\\
+\\
+For $1<s<\infty$, define 
+\[
+\zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^{s}}.
+\]
+Using $\left[x\right]$ to denote the greatest integer less than or
+equal to $x$, carefully derive the following.
+\begin{enumerate}
+\item $\zeta(s)=s\int_{1}^{\infty}\frac{\left[x\right]}{x^{s+1}}dx$ 
+\item $\zeta(s)=\frac{s}{s-1}-s\int_{1}^{\infty}\frac{x-\left[x\right]}{x^{s+1}}dx$. 
+\end{enumerate}
+
+
+
+
+%10
+\item Approximate 
+\[
+\int_{0}^{\pi}\sqrt{1-k^{2}\sin^{2}t}\,dt
+\]
+using Taylor's theorem to second order and find an upper bound on
+the error using the remainder term. (The constant $k$ is fixed and
+is such that $k^{2}\sin^{2}t\leq1$ for all $t\in[0,\pi]$. Note that
+\[
+f^{\prime\prime\prime}(x)=\frac{4\sqrt{2}k^{2}\cos(x)\sin(x)\left(4-3k^{2}\cos^{2}(x)-5k^{2}\sin^{2}(x)+k^{4}\sin^{4}(x)\right)}{(2-k^{2}+k^{2}\cos(2x))^{5/2}}.
+\]
+\end{enumerate}
+\begin{proof}
+    Let $f(t)=\sqrt{1-k^2\sin^2t}$. We evaluate $f(t)$ to the second order using Taylor's Theorem with it being centered at $a=0$. We get
+    \begin{equation*}
+        \begin{aligned}
+            P_2(t)&= f(a)+ f'(a)(t-a)+\frac{f''(a)}{2}(t-a)^2\\
+            &= 1-\frac{k^2\cos(a)\sin(a)(t-a)}{\sqrt{1-k^2\sin^2(a)}}-\frac{k^2(k^2\sin^4(a)-\sin^2(a)+\cos^2(a))(t-a)^2}{(1-k^2\sin^2(a))^{\frac{3}{2}}}\\
+            &=1-\frac{k^2t^2}{2}.
+        \end{aligned}
+    \end{equation*}
+    We approximate the integral to be
+    \begin{equation*}
+    \begin{aligned}
+        \int_0^\pi P_2(t)\,dt &= \int_0^\pi 1-\frac{k^2t^2}{2}\,dt\\
+        &=t-\frac{k^2t^3}{6}\bigg|_0^\pi\\
+        &=\pi\left(1-\frac{\pi^2k^2}{6}\right).
+        \end{aligned}
+    \end{equation*}
+    For  some $c\in[0,\pi]$, the upper bound on the error is found by 
+    \begin{equation*}
+        \begin{aligned}
+            R_2(t)&= \frac{4\sqrt{2}k^{2}\cos(c)\sin(c)\left(4-3k^{2}\cos^{2}(c)-5k^{2}\sin^{2}(c)+k^{4}\sin^{4}(c)\right)}{6(2-k^{2}+k^{2}\cos(2c))^{5/2}}t^3\\
+            &\leq \frac{4\sqrt{2}k^2(4-3-5+1)}{12(2)^{\frac{5}{2}}}t^3.
+        \end{aligned}
+    \end{equation*}
+\end{proof}
+\end{document}
