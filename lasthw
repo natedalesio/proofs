@@ -1,0 +1,168 @@
+\documentclass[oneside,english]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[none]{hyphenat}
+
+\makeatletter
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\theoremstyle{definition}
+\newtheorem*{defn*}{\protect\definitionname}
+\theoremstyle{remark}
+\newtheorem*{rem*}{\protect\remarkname}
+\theoremstyle{definition}
+\newtheorem*{example*}{\protect\examplename}
+\theoremstyle{plain}
+\newtheorem*{thm*}{\protect\theoremname}
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+\theoremstyle{definition}
+\newtheorem{xca}[thm]{\protect\exercisename}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+\providecommand{\examplename}{Example}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\remarkname}{Remark}
+\providecommand{\theoremname}{Theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\theoremstyle{definition}
+\newtheorem*{sol*}{\protect\solutionname}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\solutionname}{Solution}
+
+
+\begin{document}
+
+\subsection*{MTH 471 Asssignment 5}
+\begin{enumerate}
+\item Define 
+\[
+f(x):=\begin{cases}
+\exp\left(-\frac{1}{x^{2}}\right) & \text{if \ensuremath{x\neq0}},\\
+0 & \text{otherwise.}
+\end{cases}
+\]
+Prove the following theorem.\\
+\\
+\textbf{Theorem: }The only point at which 
+\[
+f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^{n}
+\]
+is at $x=0$. \\
+\\
+Hints: (\textbf{DO NOT }include any of these hints in your write up!!)
+To prove this theorem, it suffices to prove that $f$ has derivatives
+of all ordered and that for each $n\in\mathbb{N}$, $f^{(n)}(0)=0$.
+Once this is proved a simple observation finishes the proof. \\
+\\
+As a first step, prove that if $q(x)$ is an \textbf{arbitrary polynomial},
+then 
+\[
+\lim_{x\to0}q\left(\frac{1}{x}\right)\exp\left(-\frac{1}{x^{2}}\right)=0.
+\]
+To verify this limit, argue that it suffices to show that, for each
+$n\in\mathbb{N}$, 
+\[
+\lim_{x\to0}\frac{\exp\left(-\frac{1}{x^{2}}\right)}{x^{n}}=0.
+\]
+To prove this limit, use the squeeze theorem by showing first that,
+given $b>0$, 
+\[
+e^{b}\geq\frac{b^{n}}{n!}.
+\]
+\\
+\\
+As a second step, argue by induction that for any $n\in\mathbb{N}$
+there is a polynomial $q_{n}:\mathbb{R}\rightarrow\mathbb{R}$ for
+which 
+\[
+f^{(n)}(x)=q_{n}\left(\frac{1}{x}\right)\exp\left(-\frac{1}{x^{2}}\right)
+\]
+if $x\neq0$. \\
+\\
+Finally, argue that it follows from the second step that $f$ has
+derivatives of all orders at every point $x\neq0$. Use induction
+to prove that, for each $n\in\mathbb{N}$, 
+\[
+f^{(n)}(0)=0.
+\]
+Finish the proof.
+\item Let $\mathbb{Q}_{2}:=\left\{ \frac{k}{2^{n}}:k\in\mathbb{Z},n\in\mathbb{N}\right\} $.
+For each $n\in\mathbb{N}$ and $x\in[0,1]$, define 
+\[
+f_{n}(x)=\begin{cases}
+1 & \text{if \ensuremath{x=k/2^{n}}for some natural number \ensuremath{k},}\\
+0 & \text{otherwise.}
+\end{cases}
+\]
+Show that the sequence $\left\{ f_{n}(x)\right\} _{n=1}^{\infty}$
+converges pointwise on the interval $[0,1]$ to 
+\[
+f(x)=\begin{cases}
+1 & \text{if \ensuremath{x\in\mathbb{Q}_{2}},}\\
+0 & \text{otherwise.}
+\end{cases}
+\]
+Furthermore, prove that every $f_{n}$ is integrable on $[0,1]$ but
+that $f$ is not integrable on $[0,1]$ (to show that $f$ is not
+integrable, prove that $\mathbb{Q}_{2}$ is dense in $\mathbb{R}$). 
+\begin{proof}
+    Fix $x\in[0,1]$. For $x\in\mathbb{Q}_2$, we get $f_n(x)=1$ for any $n\in\mathbb{N}$. If $x\not\in\mathbb{Q}_2$, then we can have $x\in[0,1]\cap\mathbb{Q}\setminus\mathbb{Q}_2$ or $x\in[0,1]\setminus\mathbb{Q}$. If $x\in[0,1]\setminus\mathbb{Q}$, then $k\not\in\mathbb{Z}$ and $f_n(x)=0$ for any  $n\in\mathbb{N}$. If $x\in[0,1]\cap\mathbb{Q}\setminus\mathbb{Q}_2 $, then $x=\frac{p}{q}$ for some $p\in\mathbb{Z}$ and $q=2n+1$, $n\in\mathbb{N}$. Then, $f_n(x)=0$ for any $n\in\mathbb{N}$. We conclude that  $f_n(x)$ converges pointwise to 1 or 0 for $x\in[0,1]$.
+    Since $f_n$ is a bounded function on $[0,1]$ and $f_n$ is continuously 0 except at $2^n$ points, then $f_n$ is integrable on $[0,1]$. Now, I will prove $\mathbb{Q}_2$ is dense in $\mathbb{R}$ and show $f$ is not integrable.
+    Let $a,b\in\mathbb{R}$ with $a<b$. Choose $n\in\mathbb{N}$ with $\frac{1}{2^n}<b-a$. Define $C:=2^nb-1$. Then, there is a unique integer, $m$, in $[C,C+1)$. So, 
+    \begin{equation*}
+        2^nb-1\leq m<2^nb
+    \end{equation*}
+    for some $m\in\mathbb{Z}$. Hence, 
+    \begin{equation*}
+        b-\frac{1}{2^n}\leq\frac{m}{2^n}<b
+    \end{equation*}
+    but $\frac{1}{2^n}<b-a$. So, 
+    \begin{equation*}
+        a<b-\frac{1}{2^n}.
+    \end{equation*}
+    Thus,
+    \begin{equation*}
+        a<b-\frac{1}{2^n}<\frac{m}{2^n}<\frac{b}{2^n}.
+    \end{equation*}
+    Since $\mathbb{Q}_2$ is dense it $\mathbb{R}$, it has infinitely many points. Therefore, even though $f$ is a bounded function on $[0,1]$, $f$ is continuous except at infinitely many points. Thus, $f$ is not integrable on $[0,1]$.
+\end{proof}
+\item Prove that if $\left\{ f_{n}(x)\right\} _{n=1}^{\infty}$ is a sequence
+of continuously differentiable functions on $\mathbb{R}$ such that
+the sequence of derivatives $\left\{ f_{n}^{\prime}(x)\right\} _{n=1}^{\infty}$
+converges uniformly on $\mathbb{R}$ and the sequence $\left\{ f_{n}(0)\right\} _{n=1}^{\infty}$
+converges, then $\left\{ f_{n}(x)\right\} _{n=1}^{\infty}$ is pointwise
+convergent. 
+\begin{proof}
+    We have 
+    \begin{equation*}
+        f_n(x)=f_n(0)+\int_0^x f_n'(t)dt
+    \end{equation*}
+    for $x\in\mathbb{R}$. Taking the limit of both sides, we get
+    \begin{equation*} \lim_{n\to\infty}f_n(x)=\lim_{n\to\infty}f_n(0)+\lim_{n\to\infty}\int_0^x f_n'(t)dt.
+    \end{equation*}
+    Uniform convergence allows limits and integrals to interchange, and the sequence $\left\{ f_{n}(0)\right\} _{n=1}^{\infty}$
+converges. Thus, we conclude
+    \begin{equation*} 
+    \begin{aligned}
+    \lim_{n\to\infty}f_n(x)&=0+\int_0^x \lim_{n\to\infty}f_n'(t)dt\\
+    &=\int_0^x f'(t)dt\\
+    &=f(x)
+    \end{aligned}
+    \end{equation*}
+    which means $\left\{ f_{n}(x)\right\} _{n=1}^{\infty}$ is pointwise
+convergent. 
+\end{proof}
+\end{enumerate}
+\end{document}
