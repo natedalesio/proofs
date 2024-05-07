@@ -1,0 +1,152 @@
+\begin{enumerate}
+\item Let $n\in\mathbb{N}\cup\left\{ 0\right\} $ and let $h>0$. Prove
+the following proposition.\\
+\\
+\textbf{Proposition: }Let $f$ be a real-valued function on the interval
+$[a,a+h]$ such that $f^{(n+1)}(x)$ exists for every $x\in[a,a+h]$
+and $f^{(n+1)}$ is continuous on $[a,a+h]$. Let 
+\[
+R_{k+1}(x)=\frac{1}{k!}\int_{0}^{x}\left(x-t\right)^{k}f^{(k+1)}(t)\,dt
+\]
+for $x\in[a,a+h]$; $k=0,1,\ldots,n$. Then 
+\[
+R_{k}(x)-R_{k+1}(x)=\frac{f^{(k)}(a)}{k!}\left(x-a\right)^{k}
+\]
+for $x\in[a,a+h]$; $k=1,\ldots,n$. The same result holds if $h<0$
+and $[a,a+h]$ is replaced by $[a+h,a]$. \\
+\\
+Use the proposition above to prove:\\
+\\
+\textbf{Theorem: }Let $f$ be a real-valued function on $[a,a+h]$
+such that $f^{(n+1)}(x)$ exists for every $x\in[a,a+h]$ and $f^{(n+1)}$
+is continuous on $[a,a+h]$. Then 
+\[
+f(x)=\sum_{k=1}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^{k}+\frac{1}{n!}\int_{a}^{x}(x-t)^{n}f^{(n+1)}(t)\,dt.
+\]
+The same result holds if $h<0$ and $[a,a+h]$ is replaced by $[a+h,a]$. 
+\item Prove that 
+\[
+\lim_{x\to1}\left(\sum_{n=1}^{\infty}\frac{nx^{2}}{n^{3}+x^{3}}\right)=\sum_{n=1}^{\infty}\frac{n}{n^{3}+1}.
+\]
+\begin{proof}
+    Define the interval $I=[0,a]$ for $a>0$ and $a\in\mathbb{R}$. We see
+    \begin{equation*}
+    \begin{aligned}
+        \mid f_n(x)\mid &=\sum_{n=1}^{\infty}\bigg|\frac{nx^{2}}{n^{3}+x^{3}}\bigg|\\
+        &\leq \sum_{n=1}^{\infty}\frac{na^{2}}{n^{3}+a^{3}}\\
+        &\leq a^{2}\sum_{n=1}^{\infty}\frac{1}{n^{2}}.
+        \end{aligned}
+    \end{equation*}
+    Let $M_n=a^{2}\sum_{n=1}^{\infty}\frac{1}{n^{2}}$. We see $M_k$ converges since it is a $p-\text{series}$, and we see $\mid f_n(x)\mid\leq M_n$ for all $x\in I$ and $k\in\mathbb{N}$. We conclude that $f_n(x)$ converges uniformly. Now, we take 
+    \begin{equation*}
+        \begin{aligned}
+\lim_{x\to1}\left(\sum_{n=1}^{\infty}\frac{nx^{2}}{n^{3}+x^{3}}\right)&=\sum_{n=1}^{\infty}\lim_{x\to1}\left(\frac{nx^{2}}{n^{3}+x^{3}}\right)\\
+&=\sum_{n=1}^{\infty}\frac{n}{n^{3}+1}.
+        \end{aligned}
+    \end{equation*}
+\end{proof}
+\item Suppose that the bounded function $f:[a,b]\rightarrow\mathbb{R}$
+is integrable. Suppose that $\Xi\in\mathbb{R}$ has the property that,
+for every partition $\mathscr{P}$ of $[a,b]$, 
+\[
+L(f,\mathscr{P})\leq\Xi\leq U(f,\mathscr{P}).
+\]
+Use upper and lower integrals (i.e. $\upint_a^b f\,dx$ and $\lowint_a^b f\,dx$)
+that 
+\[
+\int_{a}^{b}f\,dx=\Xi.
+\]
+\begin{proof}
+    Let $\mathscr{P}$ be a partition of $[a,b]$. We define 
+    \begin{equation*}
+L(f,\mathscr{P})=\sum_{k=1}^nm_k(x_{k}-x_{k-1})
+    \end{equation*}
+    where $m_k=\inf\{f(x):x\in[x_{k-1},x_k]\}$ and 
+    \begin{equation*}
+       U(f,\mathscr{P})= \sum_{k=1}^nM_k(x_{k}-x_{k-1})
+    \end{equation*}
+    where  $M_k=\sup\{f(x):x\in[x_{k-1},x_k]\}$. Then,
+    \begin{equation*}
+        \lowint_a^b f\,dx=\sup\{L(f,\mathscr{P})\}
+    \end{equation*}
+    and
+    \begin{equation*}
+        \upint_a^b f\,dx=\inf\{U(f,\mathscr{P})\}.
+    \end{equation*}
+    We have
+    \begin{equation*}
+        L(f,\mathscr{P})\leq\lowint_a^b f\,dx\leq\Xi\leq\upint_a^b f\,dx\leq U(f,\mathscr{P}).
+    \end{equation*}
+    Since $f$ is integrable, this means $\lowint_a^b f\,dx=\upint_a^b f\,dx = \int_{a}^{b}f\,dx$ which implies $\int_{a}^{b}f\,dx=\Xi$.
+\end{proof}
+\item Let $P^{\ast}=\left\{ z_{0},z_{1},\ldots,z_{k}\right\} $ be a partition
+of $[a,b]$ and define a function $s_{P^{\ast}}:[a,b]\rightarrow\mathbb{R}$
+by 
+\[
+s_{P^{\ast}}(x)=c_{i}
+\]
+for all $x\in[z_{i-1},z_{i}]$, where $c_{i}\in\mathbb{R}$ for $i=1,\ldots,k$.
+Prove that $s_{P^{\ast}}$ is integrable over $[a,b]$. (Note that
+the partition $P^{\ast}$ remains with you throughout this problem;
+it is \textbf{fixed}.) \\
+\\
+\begin{proof}
+     Since the range of $s_{P^{\ast}}(x)$ contains finitely many points, $s_{P^{\ast}}(x)$ is bounded by 
+     \[
+     M=\max_{i}\mid c_i\mid.
+     \] 
+      Then, $-M\leq s_{P^{\ast}}(x)\leq M$ for all $x\in[a,b]$.
+      Now, given any partition $P$ of $[a,b]$, denote $\|P\|$ by the length of the longest subinterval of $P$. Let $P$ be a partition of $[a,b]$, we have
+    \begin{equation*}
+        U(s_{P^{\ast}},P)-L(s_{P^{\ast}},P)=\sum_{i=1}^k(M_i-m_i)(x_i-x_{i-1})
+    \end{equation*}
+    where $m_i=\inf\{s_{P^{\ast}}(x):x_{i-1}\leq x\leq x_i\}$ and $M_i=\sup\{s_{P^{\ast}}(x):x_{i-1}\leq x\leq x_i\}$. Let $s$ bet the set of $i$'s such that at least one $z_i$ is contained in $[x_{i-1},x_{i}]$. We get
+    \begin{equation*}
+    \begin{aligned}
+       \phantom{\sum}\phantom{\sum}  \phantom{\sum}\phantom{\sum}U(s_{P^{\ast}},P)&-L(s_{P^{\ast}},P)\\
+        &=\sum_{i\in s}(M_i-m_i)(x_i-x_{i-1})+\sum_{i\not\in s}(M_i-m_i)(x_i-x_{i-1})\\
+        &= \sum_{i\in s}(M_i-m_i)(x_i-x_{i-1})+0.
+    \end{aligned}
+    \end{equation*}
+    Now, notice
+    \begin{equation*}
+        \begin{aligned}
+            (M_i-m_i)(x_i-x_{i-1})\leq 2M\|P\|.
+        \end{aligned}
+    \end{equation*}
+    So,
+    \begin{equation*}
+        \begin{aligned}
+            \sum_{i\in s}(M_i-m_i)(x_i-x_{i-1})\leq 2M\|P\|\sum_{i\in s}1.
+        \end{aligned}
+    \end{equation*}
+    There are $n=0,1,\ldots,k+1$ $z_n$'s with at most 2 subintervals of $P$ for which each $z_n$ can be in. Thus, 
+    \begin{equation*}
+        \begin{aligned}
+            \sum_{i\in s}(M_i-m_i)(x_i-x_{i-1})&\leq 4(k+1)M\|P\|.
+        \end{aligned}
+    \end{equation*}
+    We define $P$ to be the sequence of partitions $\left\{ P_{n}\right\} _{n\in\mathbb{N}}$ where $\|P_{n}\|\xrightarrow[n\to\infty]{}0$. We see that 
+    \begin{equation*}
+    \begin{aligned}
+         \lim_{n\to\infty}(U(s_{P^{\ast}},P_n)-L(s_{P^{\ast}},P_n))&\leq \lim_{n\to\infty}4(k+1)M\|P_n\|\\
+         &=0.
+         \end{aligned}
+    \end{equation*}
+    Thus, $s_{P^{\ast}}(x)$ is integrable over $[a,b]$.
+\end{proof}
+\item Define $\mathscr{U}:C_{0}^{\infty}\left(\mathbb{R}\right)\rightarrow\mathbb{C}$
+by 
+\[
+\langle\mathscr{U},\phi\rangle=\int_{\mathbb{R}}\lvert x\rvert^{2}\phi^{\prime}(x)\,dx+\langle\delta_{a_{1}},\phi\rangle+\langle\delta_{a_{2}},\phi\rangle,
+\]
+where $a_{1}\neq a_{2}$. Show that $\mathscr{U}$ is linear and that
+if $\left\{ \psi_{k}\right\} _{k=1}^{\infty}$ converges to $\psi$
+in $C_{0}^{\infty}\left(\mathbb{R}\right)$, then 
+\[
+\langle\mathscr{U},\psi_{k}\rangle\xrightarrow[k\to\infty]{}\langle\mathscr{U},\psi\rangle;
+\]
+i.e., $\mathscr{U}$ is continuous and so is a distribution. 
+\end{enumerate}
+
+\end{document}
